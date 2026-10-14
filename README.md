@@ -67,3 +67,7 @@ La empresa entrega cuatro fuentes:
 - `origen_eventos_sanitarios.json`: los eventos de sanidad (SRS, caligus) por centro, con la fecha, la mortalidad
   asociada y el tratamiento.
 - La API del dolar observado, desde `https://mindicador.cl/api/dolar/2025`.
+
+## Informe (Entrega 1)
+Respuestas a los componentes A, B, C y D del informe:
+https://uccl0-my.sharepoint.com/:w:/g/personal/merebolledo_uc_cl/IQA3EEF1HfW3QYkEDPhFGyMNAQO2rQIwMr_jM7ljB2dYFVA?e=7a3BsA
