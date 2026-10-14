@@ -1,0 +1,49 @@
+cosecha_id,lote_id,centro_id,fecha,kilos_vivos,kilos_producto,calibre,nombre_centro,nombre_zona
+30036,36,6,2025-10-20,210652.0,176780.0,3-4 kg,Centro Puyuhuapi,Aysén
+30018,18,3,2025-10-20,268019.0,240463.0,5-6 kg,Centro Quellón,Los Lagos
+30011,11,2,2025-10-20,171304.0,145806.0,4-5 kg,Centro Calbuco,Los Lagos
+30017,17,3,2025-12-20,299927.0,266091.0,4-5 kg,Centro Quellón,Los Lagos
+30007,7,2,2025-12-20,275717.0,234678.0,4-5 kg,Centro Calbuco,Los Lagos
+30022,22,4,2025-12-20,294481.0,253921.0,3-4 kg,Centro Melinka,Aysén
+30038,38,7,2025-12-20,197436.0,168875.0,3-4 kg,Centro Skyring,Magallanes
+30012,12,2,2025-12-20,392278.0,337812.0,5-6 kg,Centro Calbuco,Los Lagos
+30015,15,3,2025-10-20,201886.0,175073.0,3-4 kg,Centro Quellón,Los Lagos
+30041,41,7,2025-12-20,267146.0,233844.0,4-5 kg,Centro Skyring,Magallanes
+30043,77000,5,2025-10-15,75397.0,157278.0,4-5 kg,Centro Cisnes,Aysén
+30023,23,4,2025-11-20,257170.0,221750.0,3-4 kg,Centro Melinka,Aysén
+30046,77003,1,2025-10-15,181091.0,141903.0,4-5 kg,Centro Reloncaví,Los Lagos
+30048,77005,2,2025-10-15,190298.0,71019.0,4-5 kg,Centro Calbuco,Los Lagos
+30026,26,5,2025-12-20,235871.0,202010.0,4-5 kg,Centro Cisnes,Aysén
+30016,16,3,2025-10-20,196541.0,170437.0,3-4 kg,Centro Quellón,Los Lagos
+30031,31,6,2025-12-20,296154.0,257418.0,5-6 kg,Centro Puyuhuapi,Aysén
+30001,1,1,2025-12-20,314474.0,270921.0,3-4 kg,Centro Reloncaví,Los Lagos
+30010,10,2,2025-11-20,311816.0,265404.0,4-5 kg,Centro Calbuco,Los Lagos
+30047,77004,4,2025-10-15,112302.0,78862.0,3-4 kg,Centro Melinka,Aysén
+30024,24,4,2025-12-20,328531.0,289852.0,4-5 kg,Centro Melinka,Aysén
+30030,30,5,2025-12-20,259862.0,222558.0,4-5 kg,Centro Cisnes,Aysén
+30006,6,1,2025-10-20,271006.0,233473.0,3-4 kg,Centro Reloncaví,Los Lagos
+30042,42,7,2025-11-20,226357.0,198139.0,4-5 kg,Centro Skyring,Magallanes
+30003,3,1,2025-12-20,293564.0,252907.0,3-4 kg,Centro Reloncaví,Los Lagos
+30028,28,5,2025-11-20,189181.0,162023.0,4-5 kg,Centro Cisnes,Aysén
+30014,14,3,2025-11-20,230268.0,206593.0,5-6 kg,Centro Quellón,Los Lagos
+30008,8,2,2025-10-20,267908.0,222674.0,3-4 kg,Centro Calbuco,Los Lagos
+30033,33,6,2025-12-20,252053.0,219086.0,5-6 kg,Centro Puyuhuapi,Aysén
+30009,9,2,2025-12-20,308048.0,265278.0,5-6 kg,Centro Calbuco,Los Lagos
+30021,21,4,2025-10-20,202848.0,178966.0,4-5 kg,Centro Melinka,Aysén
+30045,77002,6,2025-10-15,96605.0,72352.0,5-6 kg,Centro Puyuhuapi,Aysén
+30039,39,7,2025-12-20,221787.0,189703.0,3-4 kg,Centro Skyring,Magallanes
+30034,34,6,2025-12-20,197191.0,169427.0,4-5 kg,Centro Puyuhuapi,Aysén
+30020,20,4,2025-11-20,239894.0,214050.0,5-6 kg,Centro Melinka,Aysén
+30019,19,4,2025-12-20,257691.0,229930.0,5-6 kg,Centro Melinka,Aysén
+30025,25,5,2025-11-20,175368.0,150193.0,4-5 kg,Centro Cisnes,Aysén
+30005,5,1,2025-10-20,271983.0,234315.0,3-4 kg,Centro Reloncaví,Los Lagos
+30013,13,3,2025-12-20,406278.0,364507.0,5-6 kg,Centro Quellón,Los Lagos
+30027,27,5,2025-10-20,250972.0,214943.0,4-5 kg,Centro Cisnes,Aysén
+30029,29,5,2025-12-20,205134.0,171584.0,3-4 kg,Centro Cisnes,Aysén
+30035,35,6,2025-12-20,292169.0,245189.0,3-4 kg,Centro Puyuhuapi,Aysén
+30037,37,7,2025-10-20,146334.0,125165.0,3-4 kg,Centro Skyring,Magallanes
+30040,40,7,2025-11-20,273215.0,233691.0,3-4 kg,Centro Skyring,Magallanes
+30004,4,1,2025-12-20,270454.0,232998.0,3-4 kg,Centro Reloncaví,Los Lagos
+30002,2,1,2025-11-20,296046.0,260966.0,4-5 kg,Centro Reloncaví,Los Lagos
+30032,32,6,2025-12-20,270193.0,234853.0,5-6 kg,Centro Puyuhuapi,Aysén
+30044,77001,4,2025-10-15,175545.0,159356.0,3-4 kg,Centro Melinka,Aysén

@@ -1,0 +1,34 @@
+tipo_alimento,mes,precio_clp_kg,proveedor,moneda,glosa,tipo_alimento_norm
+ENG-100,2025-01,950.0,Skretting,CLP,con pigmentación,ENG-100
+engorda100,2025-02,964.0,BioMar,CLP,dieta medicada,ENG-100
+ENG-100,2025-03,978.0,Skretting,CLP,ración estándar,ENG-100
+Engorda 100,2025-04,993.0,Skretting,CLP,con pigmentación,ENG-100
+Engorda 100,2025-06,1021.0,Skretting,CLP,nutrición engorda,ENG-100
+ENG-100,2025-07,1036.0,BioMar,CLP,nutrición engorda,ENG-100
+ENG-100,2025-08,1050.0,Skretting,CLP,nutrición engorda,ENG-100
+Engorda 100,2025-09,1064.0,Ewos,CLP,nutrición engorda,ENG-100
+ENG-100,2025-10,1078.0,Skretting,CLP,dieta medicada,ENG-100
+Engorda 100,2025-11,1092.0,Ewos,CLP,ración estándar,ENG-100
+engorda100,2025-12,1107.0,BioMar,CLP,ración estándar,ENG-100
+Engorda 200,2025-01,1026.0,Ewos,CLP,con pigmentación,ENG-200
+engorda200,2025-02,1041.0,Ewos,CLP,alimentación invierno,ENG-200
+ENG-200,2025-03,1057.0,BioMar,CLP,nutrición engorda,ENG-200
+engorda200,2025-04,1072.0,BioMar,CLP,nutrición engorda,ENG-200
+engorda200,2025-05,1088.0,BioMar,CLP,ración estándar,ENG-200
+engorda200,2025-06,1103.0,Skretting,CLP,ración estándar,ENG-200
+engorda200,2025-08,1134.0,Skretting,CLP,con pigmentación,ENG-200
+engorda200,2025-09,1149.0,Ewos,CLP,alimentación invierno,ENG-200
+ENG-200,2025-10,1165.0,BioMar,CLP,ración estándar,ENG-200
+engorda200,2025-11,1180.0,Skretting,CLP,alimentación invierno,ENG-200
+Engorda 200,2025-12,1195.0,Ewos,CLP,nutrición engorda,ENG-200
+pigmentado,2025-01,1188.0,Skretting,CLP,alimentación invierno,ENG-000
+Pigmentado,2025-03,1223.0,Ewos,CLP,dieta medicada,ENG-000
+PIG,2025-04,1241.0,Ewos,CLP,alimentación invierno,ENG-000
+Pigmentado,2025-05,1259.0,BioMar,CLP,alimentación invierno,ENG-000
+PIG,2025-06,1277.0,BioMar,CLP,ración estándar,ENG-000
+pigmentado,2025-07,1294.0,Skretting,CLP,con pigmentación,ENG-000
+PIG,2025-08,1312.0,BioMar,CLP,nutrición engorda,ENG-000
+Pigmentado,2025-09,1330.0,Ewos,CLP,dieta medicada,ENG-000
+PIG,2025-10,1348.0,BioMar,CLP,nutrición engorda,ENG-000
+PIG,2025-11,1366.0,Skretting,CLP,con pigmentación,ENG-000
+Pigmentado,2025-12,1383.0,Skretting,CLP,alimentación invierno,ENG-000

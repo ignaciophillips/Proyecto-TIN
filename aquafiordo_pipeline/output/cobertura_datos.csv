@@ -1,0 +1,7 @@
+fuente,excluidos,total,pct_excluido,motivo
+operacion_diaria,0,14066,0.0,fecha o valores numericos no parseables tras limpieza
+operacion_diaria,69,14066,0.49,fecha fuera del periodo declarado (anio != 2025)
+operacion_diaria,55,14066,0.39,"mortalidad_n > 5% de la poblacion en un solo dia (error de captura, supuesto documentado)"
+origen_eventos_sanitarios.json,4,8,50.0,centro_id 90-93 no existe en la tabla centros (dato de prueba)
+origen_costos_alimento.csv,2,35,5.71,precio_clp_kg nulo ('-') tras limpieza
+origen_acuicultura.sqlite (centros),0,7,0.0,"1 centro(s) corregido(s), no excluido(s): Centro Skyring con zona_id 7 inexistente -> asignado a Magallanes (zona_id 3) segun su ubicacion geografica (supuesto documentado)"

@@ -1,0 +1,5 @@
+evento_id,centro_id,tipo_evento,fecha_inicio,fecha_fin,mortalidad_asociada,tratamiento,jaulas_afectadas,nombre_centro
+EV-8003,1,Branquitis,2025-09-14,2025-09-28,8052.0,Baño antiparasitario,"[6, 5]",Centro Reloncaví
+EV-8002,3,Caligus,2025-10-16,2025-10-28,3816.0,Vacunación,"[15, 13]",Centro Quellón
+EV-8004,4,Branquitis,2025-05-11,2025-05-28,7239.0,Baño antiparasitario,"[21, 24]",Centro Melinka
+EV-8001,5,SRS,2025-08-01,2025-10-15,72186.0,Antibiótico,"[25, 26, 27, 28]",Centro Cisnes
