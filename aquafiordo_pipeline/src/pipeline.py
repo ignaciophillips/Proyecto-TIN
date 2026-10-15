@@ -335,7 +335,7 @@ def calcular_metricas(op, cos, ev):
         mask_basal = (op["centro_id"] == centro_id) & (~mask_evento)
         tasa_basal_diaria = op.loc[mask_basal, "mortalidad_n"].mean()
         duracion = (row["fecha_fin"] - row["fecha_inicio"]).days + 1
-        mortalidad_basal_esperada = tasa_basal_diaria * duracion
+        mortalidad_basal_esperada = tasa_basal_diaria * int(mask_evento.sum())
         mortalidad_atribuible = max(mort_evento_total - mortalidad_basal_esperada, 0)
 
         mort_rows.append({
@@ -372,7 +372,8 @@ def descomponer_sobrecosto(resumen_centro, mortalidad_eventos, precio_mensual):
                                  ("B_corregido", "FCR_def_B_corregido")]:
         fcr_baseline = otros[col_fcr].mean()
         fcr_real = centro_top[col_fcr]
-        alimento_contrafactual = fcr_baseline * centro_top["crecimiento_kg_total"]
+        kg_base = centro_top["crecimiento_kg_total"] + (centro_top["mortalidad_kg_total"] if definicion == "B_corregido" else 0)
+        alimento_contrafactual = fcr_baseline * kg_base
         costo_contrafactual = alimento_contrafactual * precio_prom_global
         sobrecosto_por_fcr = centro_top["costo_alimento_clp_total"] - costo_contrafactual
 
