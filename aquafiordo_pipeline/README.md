@@ -26,6 +26,10 @@ Abrir el prototipo (después de correr la cadena):
 Se abre en el navegador (http://localhost:8501). **Se actualiza solo** cuando la cadena vuelve a
 correr: basta recargar la página. Para forzar modo sin internet: `AQUAFIORDO_OFFLINE=1 python3 run_all.py`.
 
+## Link al prototipo
+
+https://aquafiordopipeline.streamlit.app/
+
 ## Qué se espera ver al final
 
 - `output/cifras_clave.csv`: **cada número citado en el informe** (FCR dentro/fuera del brote,
