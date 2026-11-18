@@ -352,6 +352,39 @@ def calcular_metricas(op, cos, ev):
 
     return resumen_centro, mortalidad_eventos
 
+# =====================================================================
+# PARTE AGREGADA PARA LA E2
+# =====================================================================
+
+def calcular_fcr_dentro_fuera_evento(op, ev):
+    """FCR del centro separado en 'durante la ventana del evento sanitario'
+    vs 'fuera de ella', para verificar si el FCR alto es consecuencia del
+    evento o un problema estructural del centro (hallazgo clave de P1)."""
+    filas = []
+    for _, row in ev.iterrows():
+        centro_id = row["centro_id"]
+        mask_evento = ((op["centro_id"] == centro_id) &
+                        (op["fecha"] >= row["fecha_inicio"]) &
+                        (op["fecha"] <= row["fecha_fin"]))
+        mask_fuera = (op["centro_id"] == centro_id) & (~mask_evento)
+
+        dentro = op.loc[mask_evento]
+        fuera = op.loc[mask_fuera]
+
+        fcr_dentro = dentro["alimento_kg"].sum() / dentro["crecimiento_kg"].sum()
+        fcr_fuera = fuera["alimento_kg"].sum() / fuera["crecimiento_kg"].sum()
+
+        filas.append({
+            "evento_id": row["evento_id"],
+            "centro_id": centro_id,
+            "nombre_centro": row["nombre_centro"],
+            "tipo_evento": row["tipo_evento"],
+            "FCR_dentro_evento": round(fcr_dentro, 3),
+            "FCR_fuera_evento": round(fcr_fuera, 3),
+            "jaula_dias_evento": int(mask_evento.sum()),
+        })
+    return pd.DataFrame(filas)
+
 
 # =====================================================================
 # 4b. DESCOMPOSICION DEL SOBRECOSTO: FCR vs MORTALIDAD (componente D)
@@ -374,7 +407,14 @@ def descomponer_sobrecosto(resumen_centro, mortalidad_eventos, precio_mensual):
         fcr_real = centro_top[col_fcr]
         kg_base = centro_top["crecimiento_kg_total"] + (centro_top["mortalidad_kg_total"] if definicion == "B_corregido" else 0)
         alimento_contrafactual = fcr_baseline * kg_base
-        costo_contrafactual = alimento_contrafactual * precio_prom_global
+        # Precio consistente con el costo real: el costo real usa precio
+        # mensual (varia mes a mes); antes el contrafactual usaba un unico
+        # precio promedio anual, lo que subestimaba el sobrecosto. Se
+        # escala el gasto real por la reduccion proporcional de alimento,
+        # asumiendo que esa reduccion se reparte igual en todos los meses
+        # (supuesto documentado en la bitacora).
+        factor_alimento = alimento_contrafactual / centro_top["alimento_kg_total"]
+        costo_contrafactual = factor_alimento * centro_top["costo_alimento_clp_total"]
         sobrecosto_por_fcr = centro_top["costo_alimento_clp_total"] - costo_contrafactual
 
         # mortalidad atribuible al/los evento(s) sanitario(s) de este centro
@@ -478,7 +518,8 @@ def main():
         resumen_centro, mortalidad_eventos, precio_mensual)
     descomposicion.to_csv(OUTPUT_DIR / "descomposicion_sobrecosto_fcr_vs_mortalidad.csv",
                            index=False)
-
+    fcr_dentro_fuera = calcular_fcr_dentro_fuera_evento(op, ev)
+    fcr_dentro_fuera.to_csv(OUTPUT_DIR / "fcr_dentro_fuera_evento.csv", index=False)
     print("5/5 Calculando cobertura de datos y guardando resultados...")
     cobertura = calcular_cobertura(excl_op, total_op, detalle_excl_op, excl_centro_evt,
                                     total_evt, excl_precio, len(costos_raw_limpio),
@@ -515,6 +556,9 @@ def main():
     print(descomposicion.to_string(index=False))
 
     print(f"\nListo. Resultados en: {OUTPUT_DIR}")
+
+    print("\n=== FCR DENTRO vs FUERA DEL EVENTO ===")
+    print(fcr_dentro_fuera.to_string(index=False))
     return resumen_centro_out, mortalidad_eventos, cobertura, descomposicion
 
 

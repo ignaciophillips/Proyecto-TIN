@@ -1,3 +1,3 @@
 definicion_FCR,centro,FCR_centro_top,FCR_promedio_resto,costo_alimento_real_clp,costo_alimento_si_FCR_baseline_clp,sobrecosto_atribuible_a_FCR_clp,mortalidad_atribuible_evento_n,kg_biomasa_perdida_por_mortalidad,costo_alimento_perdido_en_mortalidad_clp,pct_sobrecosto_explicado_por_FCR
-A_simple,Centro Cisnes,1.541,1.256,2569593925.0,2131073082.0,438520843.0,61324.0,143333.0,205603438.0,68.1
-B_corregido,Centro Cisnes,1.309,1.164,2569593925.0,2326015832.0,243578094.0,61324.0,143333.0,190574998.0,56.1
+A_simple,Centro Cisnes,1.541,1.256,2569593925.0,2094285607.0,475308319.0,61324.0,143333.0,205603438.0,69.8
+B_corregido,Centro Cisnes,1.309,1.164,2569593925.0,2285863173.0,283730752.0,61324.0,143333.0,190574998.0,59.8

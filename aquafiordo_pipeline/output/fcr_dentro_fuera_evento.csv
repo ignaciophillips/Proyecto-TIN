@@ -1,0 +1,5 @@
+evento_id,centro_id,nombre_centro,tipo_evento,FCR_dentro_evento,FCR_fuera_evento,jaula_dias_evento
+EV-8003,1,Centro Reloncaví,Branquitis,1.294,1.29,90
+EV-8002,3,Centro Quellón,Caligus,1.277,1.266,54
+EV-8004,4,Centro Melinka,Branquitis,1.224,1.228,106
+EV-8001,5,Centro Cisnes,SRS,1.526,1.545,462
