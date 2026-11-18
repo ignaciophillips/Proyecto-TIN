@@ -1,0 +1,37 @@
+cifra_id,descripcion,valor,unidad,calculado_en
+centro_mas_caro,Centro con mayor costo por kilo,Centro Cisnes,texto,calcular_metricas
+costo_kg_centro,"Costo de alimento por kg producto, centro mas caro",2259.267920311769,CLP/kg,calcular_metricas
+costo_kg_otros_min,Costo por kg minimo del resto,1544.9683546649824,CLP/kg,calcular_metricas
+costo_kg_otros_max,Costo por kg maximo del resto,1658.4648103770917,CLP/kg,calcular_metricas
+pct_mas_caro_vs_max_resto,Cuanto mas caro que el centro mas caro del resto,36.226461132935974,%,calcular_metricas
+pct_mas_caro_vs_min_resto,Cuanto mas caro que el centro mas barato,46.233928577888484,%,calcular_metricas
+fcr_simple_centro,FCR simple del centro mas caro,1.54183413994489,ratio,calcular_metricas
+fcr_simple_resto,"FCR simple, promedio del resto",1.2562869098870015,ratio,descomponer_sobrecosto
+fcr_corregido_centro,FCR corregido por mortalidad del centro,1.3104611633655148,ratio,calcular_metricas
+fcr_corregido_resto,"FCR corregido, promedio del resto",1.164492109291096,ratio,descomponer_sobrecosto
+fcr_fuera_evento,FCR simple del centro fuera del brote,1.545,ratio,calcular_fcr_dentro_fuera_evento
+fcr_dentro_evento,FCR simple del centro durante el brote,1.529,ratio,calcular_fcr_dentro_fuera_evento
+mortalidad_declarada,Mortalidad declarada por la gerencia (JSON),72186.0,peces,limpiar_eventos
+mortalidad_total_periodo,Mortalidad total del periodo del evento,71721.0,peces,calcular_metricas
+mortalidad_basal_esperada,Mortalidad basal esperada en la ventana,11598.6,peces,calcular_metricas
+mortalidad_atribuible,Mortalidad atribuible al evento,60122.4,peces,calcular_metricas
+sobrecosto_fcr_simple,Sobrecosto atribuible a FCR (FCR simple),470011021.0,CLP,descomponer_sobrecosto
+sobrecosto_fcr_corregido,Sobrecosto atribuible a FCR (FCR corregido),282686056.0,CLP,descomponer_sobrecosto
+sobrecosto_total_referencia,"Sobrecosto total, cifra de referencia (FCR simple + mortalidad atribuible)",671335314.0,CLP,descomponer_sobrecosto
+sobrecosto_total_min,"Sobrecosto total, minimo de las 4 combinaciones",469299917.0,CLP,descomponer_sobrecosto
+sobrecosto_total_max,"Sobrecosto total, maximo de las 4 combinaciones",710174082.0,CLP,descomponer_sobrecosto
+pct_fcr_simple_atrib,"% del sobrecosto explicado por FCR (FCR simple, mort. atribuible)",70.0,%,descomponer_sobrecosto
+pct_fcr_corregido_atrib,"% del sobrecosto explicado por FCR (FCR corregido, mort. atribuible)",60.2,%,descomponer_sobrecosto
+costo_auditoria,Costo estimado de la auditoria (con contingencia),11880000.0,CLP,calcular_caso_negocio
+valor_auditoria_simple_100,Valor anual si se cierra 100% de la brecha (FCR simple),470011021.0,CLP,calcular_caso_negocio
+valor_auditoria_corregido_100,Valor anual si se cierra 100% de la brecha (FCR corregido),282686056.0,CLP,calcular_caso_negocio
+punto_equilibrio_simple_pct,% de la brecha que hay que cerrar para pagar la auditoria (FCR simple),2.53,%,calcular_caso_negocio
+punto_equilibrio_corregido_pct,% de la brecha que hay que cerrar para pagar la auditoria (FCR corregido),4.2,%,calcular_caso_negocio
+cobertura_operacion_diaria_fecha_o_valores_numericos,% excluido - operacion_diaria: fecha o valores numericos no parseables tras limpieza,0.0,%,calcular_cobertura
+cobertura_operacion_diaria_fecha_fuera_del_periodo_d,% excluido - operacion_diaria: fecha fuera del periodo declarado (anio != 2025),0.49,%,calcular_cobertura
+cobertura_operacion_diaria_mortalidad_n_>_5%_de_la_p,% excluido - operacion_diaria: mortalidad_n > 5% de la poblacion en un dia (las 55 filas superan el 100%: error de captura),0.39,%,calcular_cobertura
+cobertura_operacion_diaria_misma_jaula-dia_repetida_,% excluido - operacion_diaria: misma jaula-dia repetida con valores identicos (grano = 1 jaula en 1 dia),0.99,%,calcular_cobertura
+cobertura_sqlite.cosechas_lote_id_77000-77005_no_ex,% excluido - sqlite.cosechas: lote_id 77000-77005 no existe en lotes y kilos incoherentes (dato de prueba),12.5,%,calcular_cobertura
+cobertura_origen_eventos_sanitarios.json_centro_id_90-93_no_existe,% excluido - origen_eventos_sanitarios.json: centro_id 90-93 no existe en la tabla centros (dato de prueba),50.0,%,calcular_cobertura
+cobertura_origen_costos_alimento.csv_precio_clp_kg_nulo_('-');,% excluido - origen_costos_alimento.csv: precio_clp_kg nulo ('-'); se excluyen antes del conteo la fila TOTAL y el encabezado repetido,2.94,%,calcular_cobertura
+"cobertura_origen_acuicultura.sqlite_(centros)_1_centro(s)_corregido(s),","% excluido - origen_acuicultura.sqlite (centros): 1 centro(s) corregido(s), no excluido(s): Centro Skyring con zona_id 7 inexistente -> Magallanes (zona_id 3) (supuesto documentado)",0.0,%,calcular_cobertura

@@ -1,0 +1,21 @@
+fecha_ejecucion,prueba,fuente,que_verifica,si_falla,resultado,detalle
+2026-11-18 15:16:32,unicidad_clave_hecho_operacion,sqlite.operacion_diaria,"La clave (jaula_id, fecha) del hecho no se repite",bloquea,OK,0 claves repetidas
+2026-11-18 15:16:32,llaves_sin_huerfanos_operacion,sqlite.operacion_diaria,"centro, jaula y lote del hecho existen en sus dimensiones",bloquea,OK,"huerfanos: {'centro_id': 0, 'jaula_id': 0, 'lote_id': 0}"
+2026-11-18 15:16:32,fechas_dentro_del_periodo,sqlite.operacion_diaria,Todas las fechas del hecho caen en 2025,bloquea,OK,0 filas fuera del periodo
+2026-11-18 15:16:32,rangos_validos_operacion,sqlite.operacion_diaria,alimento y biomasa > 0; crecimiento y mortalidad >= 0,bloquea,OK,0 filas fuera de rango
+2026-11-18 15:16:32,mortalidad_diaria_plausible,sqlite.operacion_diaria,Mortalidad diaria <= 5% de la poblacion,bloquea,OK,maximo observado 0.35%
+2026-11-18 15:16:32,costo_alimento_calculado,sqlite + csv,Toda fila del hecho tiene precio mensual de alimento (el costo no queda nulo),bloquea,OK,0 filas sin costo
+2026-11-18 15:16:32,completitud_operacion,sqlite.operacion_diaria,Llega al menos 98% de los registros esperados,avisa,OK,99.11% de los registros llegan
+2026-11-18 15:16:32,unicidad_clave_hecho_cosecha,sqlite.cosechas,cosecha_id no se repite,bloquea,OK,0 claves repetidas
+2026-11-18 15:16:32,llaves_sin_huerfanos_cosecha,sqlite.cosechas,centro y lote de la cosecha existen en sus dimensiones,bloquea,OK,"huerfanos: {'centro_id': 0, 'lote_id': 0}"
+2026-11-18 15:16:32,rangos_validos_cosecha,sqlite.cosechas,0 < kilos_producto <= kilos_vivos (denominador del costo por kilo),bloquea,OK,0 cosechas fuera de rango
+2026-11-18 15:16:32,fechas_cosecha_en_periodo,sqlite.cosechas,Fechas de cosecha validas y dentro de 2025,bloquea,OK,0 fechas invalidas o fuera del periodo
+2026-11-18 15:16:32,cada_centro_tiene_cosechas,sqlite.cosechas,"Todo centro con operacion tiene cosechas (si no, el costo por kilo es nulo)",bloquea,OK,centros sin cosechas: []
+2026-11-18 15:16:32,rango_precio_alimento,csv.origen_costos_alimento,Precio por kg > 0 y razonable (500-3.000 CLP),bloquea,OK,"min 950 / max 1,383"
+2026-11-18 15:16:32,cobertura_meses_precio,csv.origen_costos_alimento,Hay precio de alimento para los 12 meses,bloquea,OK,12 meses con precio
+2026-11-18 15:16:32,tipos_alimento_normalizados,csv.origen_costos_alimento,"Las variantes de texto quedan en 3 codigos (ENG-100, ENG-200, PIG)",avisa,OK,"codigos: ['ENG-100', 'ENG-200', 'PIG']"
+2026-11-18 15:16:32,fechas_eventos_validas,json.origen_eventos_sanitarios,fecha_fin >= fecha_inicio y ambas dentro del periodo,bloquea,OK,"0 con fin<inicio, 0 fuera del periodo"
+2026-11-18 15:16:32,eventos_con_centro_valido,json.origen_eventos_sanitarios,Todo evento retenido apunta a un centro existente (los 90-93 se excluyen en la limpieza),bloquea,OK,0 eventos huerfanos
+2026-11-18 15:16:32,mortalidad_declarada_positiva,json.origen_eventos_sanitarios,mortalidad_asociada > 0,avisa,OK,0 eventos con mortalidad <= 0
+2026-11-18 15:16:32,api_dolar_disponible,api.mindicador.cl,"La API responde en esta corrida (si no, se usa el respaldo local y se avisa)",avisa,AVISO,fuente usada: respaldo_local (TimeoutError: The read operation timed out)
+2026-11-18 15:16:32,dolar_valido,api.mindicador.cl (o respaldo),Dolar mensual > 0 y con los 12 meses del periodo,bloquea,OK,12 meses

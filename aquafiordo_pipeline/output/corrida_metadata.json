@@ -1,0 +1,26 @@
+{
+  "fecha_corrida_utc": "2026-11-18 18:16:32",
+  "fecha_corrida_local": "18-11-2026 15:16",
+  "periodo_datos": {
+    "inicio": "2025-01-01",
+    "fin": "2025-12-20"
+  },
+  "dolar_fuente": "respaldo_local",
+  "dolar_detalle": "TimeoutError: The read operation timed out",
+  "filas_hecho_operacion_diaria": 13803,
+  "pruebas_total": 20,
+  "pruebas_ok": 19,
+  "pruebas_aviso": 1,
+  "pruebas_falla": 0,
+  "sla": {
+    "tabla": "hecho_operacion_diaria",
+    "frescura_objetivo_dias": 30,
+    "completitud_pct": 99.11,
+    "completitud_min_pct": 98.0,
+    "completitud_cumple": true,
+    "calidad_pct": 100.0,
+    "calidad_min_pct": 100.0,
+    "calidad_cumple": true,
+    "dueno": "Grupo Salmonera N°4 (equipo de datos); dueño de negocio: Gerencia de Producción de AquaFiordo"
+  }
+}

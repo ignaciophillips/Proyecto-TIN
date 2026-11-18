@@ -1,5 +1,5 @@
-evento_id,centro_id,nombre_centro,tipo_evento,mortalidad_declarada_json,mortalidad_def_A_total_periodo,mortalidad_basal_esperada,mortalidad_def_B_atribuible
-EV-8003,1,Centro Reloncaví,Branquitis,8052.0,2259.0,2398.4,0.0
-EV-8002,3,Centro Quellón,Caligus,3816.0,1338.0,1367.6,0.0
-EV-8004,4,Centro Melinka,Branquitis,7239.0,2845.0,2796.3,48.7
-EV-8001,5,Centro Cisnes,SRS,72186.0,73156.0,11832.3,61323.7
+evento_id,centro_id,nombre_centro,tipo_evento,mortalidad_declarada_json,mortalidad_total_periodo,mortalidad_basal_esperada,mortalidad_atribuible
+EV-8003,1,Centro Reloncaví,Branquitis,8052.0,2236.0,2370.7,0.0
+EV-8002,3,Centro Quellón,Caligus,3816.0,1338.0,1367.5,0.0
+EV-8004,4,Centro Melinka,Branquitis,7239.0,2845.0,2798.3,46.7
+EV-8001,5,Centro Cisnes,SRS,72186.0,71721.0,11598.6,60122.4

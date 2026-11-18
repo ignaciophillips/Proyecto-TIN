@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 """Genera las 3-5 visualizaciones para el componente E del informe.
 Requiere haber corrido pipeline.py antes (lee output/*.csv)."""
+import sys
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
+
+import config as C
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -50,16 +53,16 @@ def chart_costo_por_kilo():
 
 def chart_fcr_dos_definiciones():
     df = pd.read_csv(OUTPUT_DIR / "resumen_centro_fcr_mortalidad.csv")
-    df = df.sort_values("FCR_def_A_simple", ascending=True)
+    df = df.sort_values("fcr_simple", ascending=True)
     x = range(len(df))
     fig, ax = plt.subplots(figsize=(8, 4.5))
     w = 0.38
     colores_a = [ROJO if c == "Centro Cisnes" else AZUL for c in df["nombre_centro"]]
     colores_b = [ROJO if c == "Centro Cisnes" else AZUL_CLARO for c in df["nombre_centro"]]
-    ax.barh([i + w / 2 for i in x], df["FCR_def_A_simple"], height=w,
-            label="Def. A: simple (alimento / crecimiento)", color=colores_a)
-    ax.barh([i - w / 2 for i in x], df["FCR_def_B_corregido"], height=w,
-            label="Def. B: corregido por mortalidad", color=colores_b, alpha=0.85)
+    ax.barh([i + w / 2 for i in x], df["fcr_simple"], height=w,
+            label="FCR simple (alimento / crecimiento)", color=colores_a)
+    ax.barh([i - w / 2 for i in x], df["fcr_corregido_mortalidad"], height=w,
+            label="FCR corregido por mortalidad", color=colores_b, alpha=0.85)
     ax.set_yticks(list(x))
     ax.set_yticklabels(df["nombre_centro"])
     ax.set_xlabel("FCR (kg alimento / kg pez ganado)")
@@ -74,21 +77,22 @@ def chart_fcr_dos_definiciones():
 
 def chart_descomposicion():
     df = pd.read_csv(OUTPUT_DIR / "descomposicion_sobrecosto_fcr_vs_mortalidad.csv")
+    df = df[df["definicion_mortalidad"] == C.MORT_PRINCIPAL].reset_index(drop=True)
     fig, ax = plt.subplots(figsize=(7.5, 4.5))
     x = range(len(df))
-    fcr_millones = df["sobrecosto_atribuible_a_FCR_clp"] / 1e6
-    mort_millones = df["costo_alimento_perdido_en_mortalidad_clp"] / 1e6
+    fcr_millones = df["sobrecosto_fcr_clp"] / 1e6
+    mort_millones = df["costo_mortalidad_evento_clp"] / 1e6
     ax.bar(x, fcr_millones, label="Explicado por FCR peor", color=AZUL)
     ax.bar(x, mort_millones, bottom=fcr_millones,
-           label="Explicado por mortalidad del evento SRS", color=ROJO)
+           label="Explicado por mortalidad atribuible al evento SRS", color=ROJO)
     ax.set_xticks(list(x))
-    ax.set_xticklabels(["Definición A\n(FCR simple)", "Definición B\n(FCR corregido)"])
+    ax.set_xticklabels(["FCR simple", "FCR corregido\npor mortalidad"])
     ax.set_ylabel("Sobrecosto vs. promedio del resto de centros (MM CLP)")
     ax.set_title("Centro Cisnes: ¿por qué es el más caro? FCR vs. mortalidad",
-                  fontsize=12.5, fontweight="bold")
+                 fontsize=12.5, fontweight="bold")
     for i in x:
         total = fcr_millones.iloc[i] + mort_millones.iloc[i]
-        pct_fcr = df["pct_sobrecosto_explicado_por_FCR"].iloc[i]
+        pct_fcr = df["pct_fcr"].iloc[i]
         ax.text(i, total + 15, f"{pct_fcr:.0f}% FCR / {100-pct_fcr:.0f}% mortalidad",
                 ha="center", fontsize=9, fontweight="bold")
     ax.legend(loc="upper left", fontsize=8.5, frameon=False)
@@ -100,17 +104,17 @@ def chart_descomposicion():
 
 def chart_mortalidad_eventos():
     df = pd.read_csv(OUTPUT_DIR / "mortalidad_eventos_2_definiciones.csv")
-    df = df.sort_values("mortalidad_def_A_total_periodo", ascending=True)
+    df = df.sort_values("mortalidad_total_periodo", ascending=True)
     x = range(len(df))
     etiquetas = [f"{c}\n({t})" for c, t in zip(df["nombre_centro"], df["tipo_evento"])]
     fig, ax = plt.subplots(figsize=(8, 4.5))
     w = 0.25
     ax.barh([i + w for i in x], df["mortalidad_declarada_json"], height=w,
             label="Declarada (JSON gerencia)", color=GRIS)
-    ax.barh([i for i in x], df["mortalidad_def_A_total_periodo"], height=w,
-            label="Def. A: total del período del evento", color=AZUL_CLARO)
-    ax.barh([i - w for i in x], df["mortalidad_def_B_atribuible"], height=w,
-            label="Def. B: atribuible (exceso sobre mortalidad basal)", color=ROJO)
+    ax.barh([i for i in x], df["mortalidad_total_periodo"], height=w,
+            label="Mortalidad total del período del evento", color=AZUL_CLARO)
+    ax.barh([i - w for i in x], df["mortalidad_atribuible"], height=w,
+            label="Mortalidad atribuible (exceso sobre la basal)", color=ROJO)
     ax.set_yticks(list(x))
     ax.set_yticklabels(etiquetas, fontsize=9)
     ax.set_xlabel("Peces muertos (n)")

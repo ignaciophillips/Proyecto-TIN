@@ -1,0 +1,7 @@
+definicion_fcr,brecha_fcr_clp,pct_brecha_capturada,valor_anual_margen_clp,costo_auditoria_clp,beneficio_neto_clp,beneficio_sobre_costo,punto_equilibrio_pct_brecha
+fcr_simple,470011021.0,25,117502755.0,11880000.0,105622755.0,9.9,2.53
+fcr_simple,470011021.0,50,235005510.0,11880000.0,223125510.0,19.8,2.53
+fcr_simple,470011021.0,100,470011021.0,11880000.0,458131021.0,39.6,2.53
+fcr_corregido_mortalidad,282686056.0,25,70671514.0,11880000.0,58791514.0,5.9,4.2
+fcr_corregido_mortalidad,282686056.0,50,141343028.0,11880000.0,129463028.0,11.9,4.2
+fcr_corregido_mortalidad,282686056.0,100,282686056.0,11880000.0,270806056.0,23.8,4.2

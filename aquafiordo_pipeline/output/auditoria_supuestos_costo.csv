@@ -1,0 +1,7 @@
+concepto,cantidad,unidad,costo_unitario_clp,costo_total_clp
+Especialista en nutricion acuicola (honorario externo),5,dias,600000.0,3000000.0
+Traslado y estadia a Cisnes (Aysen) - 2 personas,2,personas,1200000.0,2400000.0
+Tiempo interno (jefe de produccion + analista),10,dias-persona,150000.0,1500000.0
+Muestreos de peso y calibracion de alimentadores,1,global,3000000.0,3000000.0
+Contingencia (20%),1,global,1980000.0,1980000.0
+TOTAL auditoria,1,global,11880000.0,11880000.0

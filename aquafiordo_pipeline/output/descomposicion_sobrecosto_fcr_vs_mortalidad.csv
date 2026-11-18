@@ -1,3 +1,5 @@
-definicion_FCR,centro,FCR_centro_top,FCR_promedio_resto,costo_alimento_real_clp,costo_alimento_si_FCR_baseline_clp,sobrecosto_atribuible_a_FCR_clp,mortalidad_atribuible_evento_n,kg_biomasa_perdida_por_mortalidad,costo_alimento_perdido_en_mortalidad_clp,pct_sobrecosto_explicado_por_FCR
-A_simple,Centro Cisnes,1.541,1.256,2569593925.0,2094285607.0,475308319.0,61324.0,143333.0,205603438.0,69.8
-B_corregido,Centro Cisnes,1.309,1.164,2569593925.0,2285863173.0,283730752.0,61324.0,143333.0,190574998.0,59.8
+definicion_fcr,definicion_mortalidad,es_referencia,centro,fcr_centro,fcr_promedio_resto,costo_alimento_real_clp,costo_alimento_si_fcr_resto_clp,sobrecosto_fcr_clp,mortalidad_evento_n,mortalidad_basal_n,costo_mortalidad_evento_clp,costo_mortalidad_basal_clp,sobrecosto_total_clp,pct_fcr,pct_evento,pct_basal
+fcr_simple,mortalidad_atribuible,True,Centro Cisnes,1.542,1.256,2537860507.0,2067849486.0,470011021.0,60122.0,0.0,201324293.0,0.0,671335314.0,70.0,30.0,0.0
+fcr_simple,mortalidad_total_periodo,False,Centro Cisnes,1.542,1.256,2537860507.0,2067849486.0,470011021.0,60122.0,11599.0,201324293.0,38838768.0,710174082.0,66.2,28.3,5.5
+fcr_corregido_mortalidad,mortalidad_atribuible,False,Centro Cisnes,1.31,1.164,2537860507.0,2255174451.0,282686056.0,60122.0,0.0,186613861.0,0.0,469299917.0,60.2,39.8,0.0
+fcr_corregido_mortalidad,mortalidad_total_periodo,False,Centro Cisnes,1.31,1.164,2537860507.0,2255174451.0,282686056.0,60122.0,11599.0,186613861.0,36000884.0,505300800.0,55.9,36.9,7.1
