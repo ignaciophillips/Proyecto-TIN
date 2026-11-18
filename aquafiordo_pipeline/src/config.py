@@ -23,7 +23,7 @@ FCR_PRINCIPAL = FCR_SIMPLE
 MORT_PRINCIPAL = MORT_ATRIBUIBLE
 
 DEFINICIONES_FCR = {
-    FCR_SIMPLE: "FCR simple: alimento / crecimiento de biomasa (solo peces vivos)",
+    FCR_SIMPLE: "Factor de Conversión Alimenticia (cuántos kilos de alimento se necesitan para ganar un kilo de pez) simple: alimento / crecimiento de biomasa (solo peces vivos)",
     FCR_CORREGIDO: "FCR corregido por mortalidad: alimento / (crecimiento + biomasa perdida por mortalidad)",
 }
 DEFINICIONES_MORTALIDAD = {
