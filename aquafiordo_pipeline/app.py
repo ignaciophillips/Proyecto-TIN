@@ -131,10 +131,13 @@ with tab_resp:
                         for n, m, p in zip(nombres, reparto["Monto (millones CLP)"], reparto["Porcentaje"])]
     orden = list(reparto["Causa"])
     graf = alt.Chart(reparto).mark_bar().encode(
-        y=alt.Y("Causa:N", sort=orden, title=None, axis=alt.Axis(labelLimit=600, labelFontSize=13)),
+        y=alt.Y("Causa:N", sort=orden, title=None,
+            axis=alt.Axis(labelLimit=600, labelFontSize=13, labelOverlap=False)),
         x=alt.X("Monto (millones CLP):Q", title="Millones de CLP"),
-        tooltip=["Causa", alt.Tooltip("Monto (millones CLP):Q", format=",.0f")])
-    st.altair_chart(graf, width="stretch")
+        color=alt.Color("Causa:N", sort=orden, legend=None,
+                         scale=alt.Scale(range=["#D9694F", "#9A918A", "#C7B9AE"])),
+        tooltip=["Causa", alt.Tooltip("Monto (millones CLP):Q", format=",.0f")],
+    ).properties(height=170)
     st.caption("Evento sanitario = mortalidad atribuible al brote. Mortalidad basal = muertes normales de la ventana "
                "(solo cuenta si eliges «mortalidad total del período»).")
     fc = fcr_df[fcr_df["nombre_centro"] == CENTRO].iloc[0]
