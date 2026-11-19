@@ -117,7 +117,7 @@ with tab_resp:
     k3.metric("Rango (4 combinaciones)", f"{mm(minimo).replace(' millones', '')} a {mm(maximo)}",
               help="Mínimo y máximo según la definición de FCR y de mortalidad")
 
-    # ---------- GRAFICO QUE EXPLICA LA CIFRA: reparto por causa (suma 100%) ----------
+ # ---------- GRAFICO QUE EXPLICA LA CIFRA: reparto por causa (suma 100%) ----------
     st.subheader("¿De dónde viene? Reparto del sobrecosto por causa")
     reparto = pd.DataFrame({
         "Causa": ["Alimentación ineficiente (FCR)", "Evento sanitario (mortalidad atribuible)",
@@ -130,11 +130,30 @@ with tab_resp:
     reparto["Causa"] = [f"{n}: {m:,.0f} M ({p:.1f}%)".replace(",", ".")
                         for n, m, p in zip(nombres, reparto["Monto (millones CLP)"], reparto["Porcentaje"])]
     orden = list(reparto["Causa"])
-    graf = alt.Chart(reparto).mark_bar().encode(
-        y=alt.Y("Causa:N", sort=orden, title=None, axis=alt.Axis(labelLimit=600, labelFontSize=13)),
-        x=alt.X("Monto (millones CLP):Q", title="Millones de CLP"),
-        tooltip=["Causa", alt.Tooltip("Monto (millones CLP):Q", format=",.0f")])
-    st.altair_chart(graf, width="stretch")
+    
+    # Capa base
+    base = alt.Chart(reparto).encode(
+        y=alt.Y("Causa:N", sort=orden, title=None, 
+                axis=alt.Axis(labelLimit=600, labelFontSize=13, labelOverlap=False)),
+        x=alt.X("Monto (millones CLP):Q", title="Millones de CLP")
+    )
+
+    # Capa de barras con colores
+    barras = base.mark_bar().encode(
+        color=alt.Color("Causa:N", sort=orden, legend=None, 
+                        scale=alt.Scale(range=["#D9694F", "#9A918A", "#C7B9AE"])),
+        tooltip=["Causa", alt.Tooltip("Monto (millones CLP):Q", format=",.0f")]
+    )
+
+    # Capa de texto al final de la barra
+    texto = base.mark_text(align='left', baseline='middle', dx=3, fontSize=12).encode(
+        text=alt.Text("Monto (millones CLP):Q", format=",.0f")
+    )
+
+    # Combinar y aplicar altura fija
+    graf = (barras + texto).properties(height=170)
+    st.altair_chart(graf, use_container_width=True)
+    
     st.caption("Evento sanitario = mortalidad atribuible al brote. Mortalidad basal = muertes normales de la ventana "
                "(solo cuenta si eliges «mortalidad total del período»).")
     fc = fcr_df[fcr_df["nombre_centro"] == CENTRO].iloc[0]
